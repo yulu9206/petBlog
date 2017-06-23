@@ -1,32 +1,51 @@
+<div class="header">
+    <a routerLink="/dashboard">Go to Polls</a>
+</div>
 <div class="aquaBorder">
-<h3>Show Topic</h3>
+<h3>{{showTopic.topic}}</h3>
+<p>Click the vote button to choose one.</p>
 <div *ngIf = 'errors'>
   <p>{{errors}}</p>
 </div>
 <div *ngIf='showTopic'>
-  <div class="row">
-    <div class="col-md-2">
-        <p>Topic:</p>
-    </div>
-    <div class="col-md-10">
-      <p>{{showTopic.topic}}</p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-2">
-      <p>Description:</p>
-    </div>
-    <div class="col-md-10">
-      <p>{{showTopic.desc}}</p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-2">
-      <p>Category:</p>
-    </div>
-    <div class="col-md-10">
-      <p>{{showTopic.catg}}</p>
-    </div>
-  </div>
+    <table class="table table-striped">
+      <thead>
+        <th>Option</th>
+        <th>Current Count of Votes</th>
+        <th>Actions</th>
+      </thead>
+      <tbody>
+      <tr>
+        <td>{{showTopic.option1}}</td>
+        <td>{{optionCounts[0]}}</td>      
+        <td>
+            <a (click) = 'vote(showTopic.option1)'>Vote</a>
+        </td>
+      </tr>
+
+      <tr>
+        <td>{{showTopic.option2}}</td>
+        <td>{{optionCounts[1]}}</td>      
+        <td>
+            <a (click) = 'vote(showTopic.option2)'>Vote</a>
+        </td>
+      </tr>
+      <tr>
+        <td>{{showTopic.option3}}</td>
+        <td>{{optionCounts[2]}}</td>      
+        <td>
+            <a (click) = 'vote(showTopic.option3)'>Vote</a>
+        </td>
+      </tr>
+
+      <tr>
+        <td>{{showTopic.option4}}</td>
+        <td>{{optionCounts[3]}}</td>      
+        <td>
+            <a (click) = 'vote(showTopic.option4)'>Vote</a>
+        </td>
+      </tr>      
+    </tbody>
+    </table>
 </div>
 </div>

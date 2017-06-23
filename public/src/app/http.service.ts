@@ -20,14 +20,29 @@ export class HttpService {
 
   createTopic(topic){
     console.log('service sending new topic', topic);
-    
     return this._http.post('/topics', topic).map((data)=>data.json()).toPromise();
   }
+
+  createOption(option){
+    console.log('service sending new option', option);
+    return this._http.post('/options', option).map((data)=>data.json()).toPromise();
+  }
+
   getOneTopic(id){
     return this._http.get('/topics/'+id).map((data)=>data.json()).toPromise();
   }
+
+  getOneOption(option){
+    console.log('service sending new option', option);
+    return this._http.get('/options/'+option).map((data)=>data.json()).toPromise();
+  }
+
   updateTopic(id, topic){
     return this._http.put('/topics/' + id, topic).map((data)=>data.json()).toPromise();
+  }
+
+  updateOption(name, option){
+    return this._http.put('/options/' + name, option).map((data)=>data.json()).toPromise();
   }
   deleteTopic(id){
     return this._http.delete('/topics/'+id).map((data)=>data.json()).toPromise();

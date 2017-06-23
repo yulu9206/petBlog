@@ -1,45 +1,45 @@
 var mongoose = require('mongoose');
-var Topic = mongoose.model('Topic');
+var Option = mongoose.model('Option');
 var User = mongoose.model('User');
 
 mongoose.Promise = global.Promise;
 module.exports = {
   showAll: function(req, res) {
-    Topic.find({}, function(err, topics) {
+    Option.find({}, function(err, options) {
       if(err){
         res.json({message: "Error", error: err});
       }
       else{
-        res.json({message: "Success", topics: topics}); 
-        // topics.map((topic)=>
-        //   User.findOne({_id: topic._author}, function(err, author){
+        res.json({message: "Success", options: options}); 
+        // options.map((option)=>
+        //   User.findOne({_id: option._author}, function(err, author){
         //     if(err) {
         //         console.log(err);
         //     } else {
-        //         topic.author = author;
+        //         option.author = author;
         //     }
         //   });
         // );
       }       
-    }).sort({ topic: -1 });;
+    }).sort({ option: -1 });;
   },
   // 'asc' 
   create: function(req, res) {
-    // var topic = new Topic(req.body);
-    Topic.create(req.body, function(err, output){
+    // var option = new Option(req.body);
+    Option.create(req.body, function(err, output){
       if (err) {
         res.json({message: "Error", error: err})
       }
       else {
-        res.json({message: "Success", topic: output})
+        res.json({message: "Success", option: output})
       }
     })
   }, 
   // create: function(req, res) {  
   //   User.findOne({_id: req.body._author}, function(err, author){
-  //       var topic = new Topic(req.body);
-  //       author.topics.push(topic);
-  //       topic.save(function(err){
+  //       var option = new Option(req.body);
+  //       author.options.push(option);
+  //       option.save(function(err){
   //         author.save(function(err){
   //             if(err) {
   //                 res.json({message: "Error", error: err});
@@ -51,28 +51,28 @@ module.exports = {
   //   });
   // },
   show: function(req, res){
-    console.log('db is trying to find topic',req.params.id)
-    Topic.findOne({_id: req.params.id})
-    .then((topic)=>{
-      console.log('db find topic', topic);
-      res.json({message: "Success", topic: topic})
+    console.log('db is trying to find option',req.params.name)
+    Option.findOne({option: req.params.name})
+    .then((option)=>{
+      console.log('db find option', option);
+      res.json({message: "Success", option: option})
     })
     .catch((err)=>{
       res.json({message: "Error", error: err})
     })
   },
   update: function(req, res){
-    Topic.update({ _id: req.body._id }, req.body, function (err,output) {
+    Option.update({ option: req.body.option }, req.body, function (err,output) {
       if (err) {
         res.json({message: "Error", error:err})
       }
       else {
-        res.json({message: "Success", topic:output})
+        res.json({message: "Success", option:output})
       }
     });
   },
   delete: function(req, res){
-    Topic.remove({_id: req.params.id})
+    Option.remove({_id: req.params.id})
     .then((data)=>{
       res.json({message: "Success"})
     })

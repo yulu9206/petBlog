@@ -1,4 +1,5 @@
 var topics = require('./../controllers/topics.js');
+var options = require('./../controllers/options.js');
 var users = require('./../controllers/users.js');
 var path = require("path");
 
@@ -22,12 +23,29 @@ module.exports = function(app) {
     console.log('server routes sending new topic to db', req.body);    
     topics.create(req, res);
   });
+
+  app.post('/options', function(req, res){
+    console.log('server routes sending new option to db', req.body);    
+    options.create(req, res);
+  });
+
   app.get('/topics/:id', function(req, res){
     console.log('server is trying to find topic', req.body)
     topics.show(req, res);
   });
+
+  app.get('/options/:name', function(req, res){
+    console.log('server is trying to find option', req.body)
+    options.show(req, res);
+  });
+
   app.put('/topics/:id', function(req, res){
     topics.update(req, res);
+  });
+
+  app.put('/options/:name', function(req, res){
+    console.log('server is trying to update option', req.body);
+    options.update(req, res);
   });
 
   app.delete('/topics/:id', function(req, res){

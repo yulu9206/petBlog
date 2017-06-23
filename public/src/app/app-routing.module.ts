@@ -10,8 +10,9 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'new', component: NewComponent },
-  { path: 'edit/:id', component: EditComponent},
-  { path: 'show/:id', component: ShowComponent }
+  // { path: 'edit/:id', component: EditComponent},
+  { path: 'show/:id', component: ShowComponent },
+  { path: '**', redirectTo: ''},
 ];
 
 @NgModule({

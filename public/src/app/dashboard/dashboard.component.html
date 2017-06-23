@@ -1,29 +1,33 @@
 <div class="header">
-    <a routerLink="/dashboard">Dashboard</a>
+    <a routerLink="/new">Creat a New Poll</a>
     <a routerLink="/">Logout</a>
 </div>
 
 <div class="container">
-  <h1>Welcome, {{user.name}}</h1>
-  <h2>You have {{user.topics|count}} topics!</h2>
+  
+  <h2>Current Polls:</h2>
+  <br>
+  <input value="Search">
+  <br>
+  <br>
   <div *ngIf = 'errors'>
     <p>{{errors}}</p>
   </div>
   <div *ngIf='topics'>
     <table class="table table-striped">
       <thead>
-        <th>Topic</th>
-        <th>Author</th>
+        <th>Name</th>
+        <th>Survey Question</th>
+        <th>Date Posted</th>
         <th>Actions</th>
       </thead>
       <tbody>
       <tr *ngFor = 'let topic of topics'>
-        <td>{{topic.topic}}</td>
-        <td>{{topic._author}}</td>
+        <td>{{topic.authorName}}</td>
+        <td><a [routerLink]="['/show', topic._id]">{{topic.topic}}</a> </td>
+        <td>{{topic.createdAt|date:'longDate'}}</td>
         <td>
           <div *ngIf="topic._author == user._id">
-            <a [routerLink]="['/show', topic._id]">Show</a> 
-            <a [routerLink]="['/edit', topic._id]">Edit</a>
             <a (click) = 'delete(topic._id)'>Delete</a>
           </div>
         </td>
@@ -31,8 +35,6 @@
     </tbody>
     </table>
   </div>
-
-  <a [routerLink]="['/new']">Create a new topic!</a>
 </div>
 
 

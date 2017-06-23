@@ -2,12 +2,15 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var TopicSchema = new mongoose.Schema({
  topic: {type: String, required: true},
- desc: {type: String},
- catg: {type: String},
+//  optons: [{type: String}],
+ authorName: {type: String},
+ option1: {type: String},
+ option2: {type: String},
+ option3: {type: String},
+ option4: {type: String},
  _author: {type: Schema.Types.ObjectId, ref: 'Author'},
- answers: [{type: Schema.Types.ObjectId, ref: 'Answer'}],
+//  optonIds: [{type: Schema.Types.ObjectId, ref: 'Option'}],
 }, {timestamps: true});
- 
 mongoose.model('Topic', TopicSchema);
 
 
@@ -32,25 +35,3 @@ mongoose.model('Topic', TopicSchema);
 //       res.render('post', {post: post});
 //         });
 // });
-
-//  //  just a sample route.  Post request to update a post.
-//  //  your routes will probably look different.
-//  app.post('/posts/:id', function (req, res){
-//     Post.findOne({_id: req.params.id}, function(err, post){
-//         // data from form on the front end
-//         var comment = new Comment(req.body);
-//         //  set the reference like this:
-//         comment._post = post._id;
-//         // now save both to the DB
-//         comment.save(function(err){
-//                 post.comments.push(comment);
-//                 post.save(function(err){
-//                      if(err) {
-//                           console.log('Error');
-//                      } else {
-//                           res.redirect('/');
-//                      }
-//                  });
-//          });
-//     });
-//  });
