@@ -1273,9 +1273,20 @@ var ShowComponent = (function () {
             if (data.message == "Success") {
                 data.option.count += 1;
                 console.log("now count is ", data.option.count);
-                _this._httpService.updateOption(option, data.option);
-                _this.optionCounts = [];
-                _this.getOneTopic();
+                _this._httpService.updateOption(option, data.option)
+                    .then(function (data) {
+                    console.log("Got data about one show Option", data);
+                    if (data.message == "Success") {
+                        _this.optionCounts = [];
+                        _this.getOneTopic();
+                    }
+                    else {
+                        _this.errors = data.error.message;
+                    }
+                })
+                    .catch(function (err) {
+                    console.log("Got an error getting show option", err);
+                });
             }
             else {
                 _this.errors = data.error.message;

@@ -71,9 +71,20 @@ export class ShowComponent implements OnInit, OnDestroy {
       if(data.message == "Success"){
          data.option.count += 1;
          console.log("now count is ", data.option.count);
-         this._httpService.updateOption(option, data.option);
-         this.optionCounts = [];
-         this.getOneTopic();
+         this._httpService.updateOption(option, data.option)
+        .then((data)=>{
+        console.log("Got data about one show Option", data);
+        if(data.message == "Success"){
+          this.optionCounts = [];
+          this.getOneTopic();
+        }
+        else {
+          this.errors = data.error.message;
+        }
+        })
+        .catch((err)=>{
+          console.log("Got an error getting show option", err);
+        })
       }
       else {
         this.errors = data.error.message;
