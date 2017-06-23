@@ -1,3 +1,38 @@
-<div class="container">
-  
+<div class="header">
+    <a routerLink="/dashboard">Dashboard</a>
+    <a routerLink="/">Logout</a>
 </div>
+
+<div class="container">
+  <h1>Welcome, {{user.name}}</h1>
+  <h2>You have {{user.topics|count}} topics!</h2>
+  <div *ngIf = 'errors'>
+    <p>{{errors}}</p>
+  </div>
+  <div *ngIf='topics'>
+    <table class="table table-striped">
+      <thead>
+        <th>Topic</th>
+        <th>Author</th>
+        <th>Actions</th>
+      </thead>
+      <tbody>
+      <tr *ngFor = 'let topic of topics'>
+        <td>{{topic.topic}}</td>
+        <td>{{topic._author}}</td>
+        <td>
+          <div *ngIf="topic._author == user._id">
+            <a [routerLink]="['/show', topic._id]">Show</a> 
+            <a [routerLink]="['/edit', topic._id]">Edit</a>
+            <a (click) = 'delete(topic._id)'>Delete</a>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+  </div>
+
+  <a [routerLink]="['/new']">Create a new topic!</a>
+</div>
+
+

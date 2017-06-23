@@ -1,3 +1,32 @@
-<p>
-  show works!
-</p>
+<div class="aquaBorder">
+<h3>Show Topic</h3>
+<div *ngIf = 'errors'>
+  <p>{{errors}}</p>
+</div>
+<div *ngIf='showTopic'>
+  <div class="row">
+    <div class="col-md-2">
+        <p>Topic:</p>
+    </div>
+    <div class="col-md-10">
+      <p>{{showTopic.topic}}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <p>Description:</p>
+    </div>
+    <div class="col-md-10">
+      <p>{{showTopic.desc}}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <p>Category:</p>
+    </div>
+    <div class="col-md-10">
+      <p>{{showTopic.catg}}</p>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,3 +1,30 @@
-<p>
-  new works!
-</p>
+<div class="header">
+    <a routerLink="/dashboard">Dashboard</a>
+    <a routerLink="/">Logout</a>
+</div>
+<div class="container">
+  <h3>Add a New Topic</h3>
+  <div *ngIf='errors'>
+    <p>{{errors}}</p>
+  </div>
+   <form #topicForm="ngForm"(submit)='createTopic(topicForm)'>
+    <div class="form-group">
+      <label for="topic">Topic:</label>
+      <input type="text" name="topic" [(ngModel)]='newtopic.topic' class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="desc">Description:</label>
+      <input type="text" name="desc"  [(ngModel)]='newtopic.desc' class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="catg">Category</label>
+      <select name="catg"  [(ngModel)]='newtopic.catg' class="form-control">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

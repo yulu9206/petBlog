@@ -10,7 +10,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NewComponent } from './new/new.component';
 import { ShowComponent } from './show/show.component';
 import { EditComponent } from './edit/edit.component';
-// import { CookieService } from 'angular-cookies/services/cookies.service';
+import { CookieService } from 'angular2-cookie/services/cookies.service';
+import {Count} from './countPipe';
+
 
 @NgModule({
   declarations: [
@@ -19,16 +21,20 @@ import { EditComponent } from './edit/edit.component';
     DashboardComponent,
     NewComponent,
     ShowComponent,
-    EditComponent
+    EditComponent,
+    Count
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    // CookieModule.forRoot()
+
   ],
-  providers: [HttpService],
-  bootstrap: [AppComponent]
+  providers: [
+    HttpService,
+    CookieService
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

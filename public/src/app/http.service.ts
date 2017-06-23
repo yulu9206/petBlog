@@ -6,12 +6,30 @@ import 'rxjs'
 export class HttpService {
   
   constructor(private _http: Http) { }
-    // getWeather(city){
-    // return this._http.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=2d48fac56559bdc6af0e1acf4cf2b9ca').map((data)=>data.json()).toPromise()
-
-  // }
+  getOneUser(name){
+    console.log('service is getting this user', name)
+    return this._http.get('/users/'+name).map((data)=>data.json()).toPromise();
+  }
   newUser(user){
     console.log('service sending new user', user);
     return this._http.post('/new_user', user).map(data => data.json()).toPromise();
+  }
+  getTopics(){
+    return this._http.get('/topics').map((data)=>data.json()).toPromise()
+  }
+
+  createTopic(topic){
+    console.log('service sending new topic', topic);
+    
+    return this._http.post('/topics', topic).map((data)=>data.json()).toPromise();
+  }
+  getOneTopic(id){
+    return this._http.get('/topics/'+id).map((data)=>data.json()).toPromise();
+  }
+  updateTopic(id, topic){
+    return this._http.put('/topics/' + id, topic).map((data)=>data.json()).toPromise();
+  }
+  deleteTopic(id){
+    return this._http.delete('/topics/'+id).map((data)=>data.json()).toPromise();
   }
 }
