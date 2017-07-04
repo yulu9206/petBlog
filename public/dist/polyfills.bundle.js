@@ -42,6 +42,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 // import 'core-js/es6/array';
 // import 'core-js/es6/regexp';
 // import 'core-js/es6/map';
+// import 'core-js/es6/weak-map';
 // import 'core-js/es6/set';
 /** IE10 and IE11 requires the following for NgClass support on SVG elements */
 // import 'classlist.js';  // Run `npm install --save classlist.js`.
@@ -64,7 +65,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
  * Needed for: All but Chrome, Firefox, Edge, IE11 and Safari 10
  */
 // import 'intl';  // Run `npm install --save intl`.
-//# sourceMappingURL=/Users/yulu9206/GoogleDrive/dojo/DojoAssignments/MEAN/MEAN/MEANproject/public/src/polyfills.js.map
+/**
+ * Need to import at least one locale-data with intl.
+ */
+// import 'intl/locale-data/jsonp/en';
+//# sourceMappingURL=polyfills.js.map
 
 /***/ }),
 
@@ -4763,7 +4768,7 @@ Zone.__load_patch('util', function (global, Zone, api) {
 
 /***/ }),
 
-/***/ 2:
+/***/ 1:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("../../../../../src/polyfills.ts");
@@ -4771,5 +4776,5 @@ module.exports = __webpack_require__("../../../../../src/polyfills.ts");
 
 /***/ })
 
-},[2]);
+},[1]);
 //# sourceMappingURL=polyfills.bundle.js.map

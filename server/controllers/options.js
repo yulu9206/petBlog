@@ -62,7 +62,7 @@ module.exports = {
     })
   },
   update: function(req, res){
-    Option.update({ option: req.body.option }, req.body, function (err,output) {
+    Option.update({ _id: req.body._id }, req.body, function (err,output) {
       if (err) {
         res.json({message: "Error", error:err})
       }

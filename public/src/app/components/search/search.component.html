@@ -1,0 +1,74 @@
+<form id="frm-find-a-pet" class="frm-find-a-pet clear js-sanitize js-antiClickjack-petSearchForm" action="https://www.petfinder.com/pet-search" method="get" autocomplete="off">
+    <div class="petSearch">
+        <fieldset>
+            <ul class="petSearch-filter">
+                <li class="petSearch-filter-param">
+                    <label for="location">Location(zipcode)</label>
+                    <div class="input-wrap input-wrap_fill m-input-wrap_medium">
+                        <div class="styled-text-input">
+                            <input type="text" id="location" class="loc-input-field fap-field" name="location" placeholder="Ex: Atlanta, GA or 30303" required="required" title="Location is required.">
+                        </div>
+                    </div>
+                    <div id="requiredPopup">Please fill out this field.</div>
+                </li>
+                <li class="petSearch-filter-param">
+                    <label for="fap-type">Type</label>
+                    <div class="input-wrap input-wrap_fill m-input-wrap_medium">
+                        <div class="styled-select">
+                            <select id="fap-type" name="animal" class="fap-type pet-types fap-field">
+                                <option value="" class="any">Any</option>
+                                <option value="dog" class="pet dog">Dog</option>
+                                <option value="cat" class="pet cat">Cat</option>
+                                <option value="rabbit" class="pet rabbit">Rabbit</option>
+                                <option value="smallFurry" class="pet small-furry">Small &amp; Furry</option>
+                                <option value="horse" class="pet horse">Horse</option>
+                                <option value="bird" class="pet birds">Bird</option>
+                                <option value="scalesFinsOther" class="pet reptile">Scales, Fins &amp; Others</option>
+                                <option value="barnyard" class="pet barnyard">Barnyard</option>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+                <!--<li class="petSearch-filter-param">
+                    <label for="fap-breed-id">Breed (<a href="/breeds/">See All</a>)</label>
+                    <div class="input-wrap input-wrap_fill m-input-wrap_medium">
+                        <div class="styled-text-input">
+                            
+                        <input id="fap-breed-id" class="fap-field" type="text" name="breed" placeholder="Please select Type first" autocomplete="off"></div>
+                    </div>
+                </li>-->
+                <li class="petSearch-filter-param" id="fap-top-age">
+                    <span class="label-cbox">Age</span>
+                    <div class="styled-age-gender-wrap input-wrap input-wrap_fill m-input-wrap_small">
+                        <div class="styled-age-gender js-keyboardFocus">
+                            <div class="styled-age-gender-button"></div>
+                            <!--<div class="selected-value">Any Age</div>-->
+                            <label class="cbox"><input type="checkbox" class="fap-field" name="age" value="baby"> Baby</label><br>
+                            <label class="cbox"><input type="checkbox" class="fap-field" name="age" value="young"> Young</label><br>
+                            <label class="cbox"><input type="checkbox" class="fap-field" name="age" value="adult"> Adult</label><br>
+                            <label class="cbox"><input type="checkbox" class="fap-field" name="age" value="senior"> Senior</label>
+                        </div>
+                    </div>
+                </li>
+                <li class="petSearch-filter-param" id="fap-top-gender">
+                    <span class="label-cbox">Gender</span>
+                    <div class="styled-age-gender-wrap input-wrap input-wrap_fill m-input-wrap_small">
+                        <div class="styled-age-gender js-keyboardFocus">
+                            <div class="styled-age-gender-button"></div>
+                            <!--<div class="selected-value">Any</div>-->
+                            <label class="cbox"><input type="checkbox" class="fap-field" name="gender" value="male"> Male</label><br>
+                            <label class="cbox"><input type="checkbox" class="fap-field" name="gender" value="female"> Female</label><br>
+                            <label class="cbox"><input type="checkbox" class="fap-field" name="gender" value="unknown"> Unknown</label>
+                        </div>
+                    </div>
+                </li>
+                <li class="petSearch-filter-param petSearch-filter-param_offset">
+                      <input type="hidden" name="distance" value="25">
+                  <button type="submit" onclick="purinaTrackEvent('','pet search','submit search criteria')" id="find-pets-btn" class="petSearch-filter-param-btn js-sanitize-submit">Find Pets</button>
+            </li>
+            </ul>
+        </fieldset>
+
+            </div>
+</form>
+<a href="https://www.petfinder.com/">petfinder</a>

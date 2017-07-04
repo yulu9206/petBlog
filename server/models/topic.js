@@ -2,13 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var TopicSchema = new mongoose.Schema({
  topic: {type: String, required: true},
-//  optons: [{type: String}],
  authorName: {type: String},
- option1: {type: String},
- option2: {type: String},
- option3: {type: String},
- option4: {type: String},
- _author: {type: Schema.Types.ObjectId, ref: 'Author'},
 //  optonIds: [{type: Schema.Types.ObjectId, ref: 'Option'}],
 }, {timestamps: true});
 mongoose.model('Topic', TopicSchema);

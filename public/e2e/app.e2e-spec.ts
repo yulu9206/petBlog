@@ -1,14 +1,14 @@
-import { NewCliPage } from './app.po';
+import { PetsBlogPage } from './app.po';
 
-describe('new-cli App', () => {
-  let page: NewCliPage;
+describe('pets-blog App', () => {
+  let page: PetsBlogPage;
 
   beforeEach(() => {
-    page = new NewCliPage();
+    page = new PetsBlogPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toEqual('Welcome to app!!');
   });
 });

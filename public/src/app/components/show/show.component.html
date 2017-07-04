@@ -1,0 +1,28 @@
+<!--{{showPet|json}}-->
+<div class="aquaBorder">
+<h3>{{showPet.name}}</h3>
+
+<table class="table table-striped">
+  <thead>
+    <th>Id</th>
+    <th>Sex</th>
+    <th>Age</th>
+    <th>Size</th>
+    <th>ShelterId</th>
+    <th>Address</th>
+  </thead>
+  <tbody>
+  <tr>
+    <td>{{showPet.id}}</td>
+    <td>{{showPet.sex}}</td>      
+    <td>{{showPet.age}}</td>
+    <td>{{showPet.size}}</td>
+    <td>{{showPet.shelterId}}</td>
+    <td>{{showPet.contact.address1}}, {{showPet.contact.city}}, {{showPet.contact.state}}, {{showPet.contact.zip}}</td>
+  </tr>
+</tbody>
+</table>
+<div>
+<img src="{{showPet.media.photos[1].pn}}" alt="Card image cap" style="display:inline-block; vertical-align:top; margin: 20px">
+<p style="display:inline-block; width:400px; margin: 20px">{{showPet.description}}</p>
+</div>

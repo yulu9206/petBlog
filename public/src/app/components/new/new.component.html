@@ -1,0 +1,8 @@
+<!--{{profile|json}}-->
+<form role = "form"  #topicForm="ngForm" (submit)="onSubmit(topicForm)">
+   <div class = "form-group">
+      <label for = "post">Post about pets here:</label>
+      <textarea class = "form-control" rows = "3" #topic="ngModel" name="topic" [(ngModel)]='newtopic.topic'></textarea>
+   </div>
+   <button type = "submit" class = "btn btn-primary">Post</button>
+</form>

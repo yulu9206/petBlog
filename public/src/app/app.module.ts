@@ -1,40 +1,40 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app.routing'; 
+import { AuthService } from './auth/auth.service';
+import { AppComponent } from './app.component';
+import { HomeComponent } from './components/home/home.component';
+import { ShowComponent } from './components/show/show.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { NewComponent } from './components/new/new.component';
+
+import { AuthGuardService } from './auth/auth.guard';
 import { HttpModule } from '@angular/http';
 import { HttpService } from './http.service';
-import { AppRoutingModule } from './app-routing.module'; 
-import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { NewComponent } from './new/new.component';
-import { ShowComponent } from './show/show.component';
-import { EditComponent } from './edit/edit.component';
-import { CookieService } from 'angular2-cookie/services/cookies.service';
-import {Count} from './countPipe';
+import { FormsModule } from '@angular/forms';
+import { SearchComponent } from './components/search/search.component';
 
+// import { AUTH_PROVIDERS} from 'angular2-jwt';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    DashboardComponent,
-    NewComponent,
+    HomeComponent,
+    ProfileComponent,
     ShowComponent,
-    EditComponent,
-    Count
+    NewComponent,
+    DashboardComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
+    AppRoutingModule,
     HttpModule,
     AppRoutingModule,
-
+    FormsModule
   ],
-  providers: [
-    HttpService,
-    CookieService
-  ],
-  bootstrap: [AppComponent],
+  providers: [AuthService, AuthGuardService, HttpService ],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
